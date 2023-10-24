@@ -17,6 +17,15 @@
   /* text-align: center; */
 }
 
+.footer{
+  background-color: hsl(200, 100%, 85%);
+  height:2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+}
+
 @media screen and (max-width: 650px) {
   .header{
     height: 7vh;

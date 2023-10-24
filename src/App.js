@@ -16,6 +16,7 @@ import Channel from './pages/Channel';
 import Beam from './pages/Beam';
 import Flat from './pages/Flat';
 import Plate from './pages/plate';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/flat" element={<Flat />} />
             <Route path="/plate" element={<Plate />} />
           </Routes>
+          <Footer/>
         </div>
       </BrowserRouter>
     </>

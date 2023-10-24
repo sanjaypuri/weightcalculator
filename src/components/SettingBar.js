@@ -8,7 +8,7 @@ export default function SettingBar() {
 
   useEffect(() => {
     localStorage.setItem("density", 7850);
-    localStorage.setItem("clacMode", "byLength");
+    localStorage.setItem("calcMode", "byLength");
     navigate("/hexbar")
   }, []);
 
