@@ -1,0 +1,36 @@
+.setting-bar{
+  height: 6vh;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.select-group{
+  margin: 5px 0;
+}
+
+.select-group label{
+  margin-right: 5px;
+}
+
+.select-group select{
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.select-group select option{
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 650px) {
+  .setting-bar{
+    flex-direction: column;
+    height: 18vh;
+  }
+  .select-group{
+    width: 100%;
+    text-align: center;
+  }
+}

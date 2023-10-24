@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header';
+import SettingBar from './components/SettingBar';
+import HexBar from './pages/HexBar';
+import RoundBar from './pages/RoundBar';
+import Home from './pages/Home';
+import RoundTube from './pages/RoundTube';
+import SquareBar from './pages/Squarebar';
+import RectangularTube from './pages/RectangularTube';
+import TBar from './pages/TBar';
+import Angle from './pages/Angle';
+import Channel from './pages/Channel';
+import Beam from './pages/Beam';
+import Flat from './pages/Flat';
+import Plate from './pages/plate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div className="main">
+      <Header/>
+      <SettingBar/>
+      {/* <Home/> */}
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/hexbar" element={<HexBar/>}/>
+        <Route path="/roundbar" element={<RoundBar/>}/>
+        <Route path="/roundtube" element={<RoundTube/>}/>
+        <Route path="/squarebar" element={<SquareBar/>}/>
+        <Route path="/rectangulartube" element={<RectangularTube/>}/>
+        <Route path="/tbar" element={<TBar/>}/>
+        <Route path="/angle" element={<Angle/>}/>
+        <Route path="/channel" element={<Channel/>}/>
+        <Route path="/beam" element={<Beam/>}/>
+        <Route path="/flat" element={<Flat/>}/>
+        <Route path="/plate" element={<Plate/>}/>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
