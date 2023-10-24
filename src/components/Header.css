@@ -3,6 +3,11 @@
   height:13vh;
 }
 
+.header-dark{
+  background-color: hsl(200, 100%, 15%);
+  color: beige;
+}
+
 .header div{
   padding:1% 2%;
   font-size: 1.8rem;

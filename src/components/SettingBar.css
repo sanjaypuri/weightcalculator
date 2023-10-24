@@ -6,6 +6,11 @@
   justify-content: space-evenly;
 }
 
+.setting-bar-dark{
+  background-color: hsl(0, 0%, 20%);
+  color: beige;
+}
+
 .select-group{
   margin: 5px 0;
 }

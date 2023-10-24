@@ -7,7 +7,7 @@ export default function SettingBar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.setItem("density", 7.85);
+    localStorage.setItem("density", 7850);
     localStorage.setItem("clacMode", "byLength");
     navigate("/hexbar")
   }, []);
@@ -25,7 +25,7 @@ export default function SettingBar() {
   };
 
   return (
-    <div className="setting-bar">
+    <div id ="settingBar" className="setting-bar">
       <div className="select-group">
         <label htmlFor="calc">Calculation for</label>
         <select name="calc" id="calc" onChange={handleNavigation}>
