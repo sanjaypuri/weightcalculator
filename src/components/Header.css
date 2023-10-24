@@ -1,6 +1,9 @@
 .header{
   background-color: hsl(200, 100%, 85%);
   height:13vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-dark{
@@ -11,7 +14,7 @@
 .header div{
   padding:1% 2%;
   font-size: 1.8rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 @media screen and (max-width: 650px) {
