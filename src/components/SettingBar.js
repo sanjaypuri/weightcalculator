@@ -45,15 +45,15 @@ export default function SettingBar() {
       <div className="select-group">
         <label htmlFor="material">Material</label>
         <select name="material" id="material" onChange={handleDensity}>
-          <option selected value="7.85">Steel</option>
-          <option value="2.73">Aluminum</option>
-          <option value="8.55">Brass</option>
-          <option value="8.93">Copper</option>
-          <option value="8.88">Bronze</option>
-          <option value="2.2">Teflon</option>
-          <option value="7.92">SS 304/310</option>
-          <option value="7.94">SS 316/321</option>
-          <option value="7.71">SS 410/430</option>
+          <option selected value="7850">Steel</option>
+          <option value="2730">Aluminum</option>
+          <option value="8550">Brass</option>
+          <option value="8930">Copper</option>
+          <option value="8880">Bronze</option>
+          <option value="2200">Teflon</option>
+          <option value="7920">SS 304/310</option>
+          <option value="7940">SS 316/321</option>
+          <option value="7710">SS 410/430</option>
         </select>
       </div>
       <div className="select-group">

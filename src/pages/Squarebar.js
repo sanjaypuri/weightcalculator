@@ -1,8 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import './HexBar.css';
 import img from '../images/squarebar.png';
 
 export default function SquareBar() {
+
+  const [side, setSide] = useState('');
+  const [length, setLength] = useState('');
+  const [pieces, setPieces] = useState('');
+  const [price, setPrice] = useState('');
+  const [weight, setWeight] = useState(0);
+  const [totalWeight, setTotalWeight] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const handleClick = () => {
+    if(!validForm()) return;
+    const s = parseFloat(side)/1000;
+    const len = parseFloat(length)/1000;
+    const density = localStorage.getItem("density");
+    const wt = s*s*len*density;
+    setWeight(wt);
+    if(pieces){
+      setTotalWeight(weight*pieces);
+    } else {
+      setTotalWeight(0);
+    }
+    if(price){
+      if(pieces){
+        setTotalPrice(weight*pieces*price);
+      } else {
+        setTotalPrice(weight*price);
+      }
+    } else {
+      setTotalPrice(0);
+    }
+  };
+
+  const validForm = () => {
+    if(side === '' || side === null){
+      toast.error("Side cannot be blank");
+      return false;
+    }
+    if(length === '' || length === null){
+      toast.error("Length cannot be blank");
+      return false;
+    }
+    if(!parseFloat(side)){
+      toast.error("Please enter a valid number for Side");
+      return false;
+    }
+    if(!parseFloat(length)){
+      toast.error("Please enter a valid number for Length");
+      return false;
+    }
+    if(pieces.length){
+      if(!parseFloat(pieces)){
+        toast.error("Please enter a valid number of Pieces");
+        return false;
+      }
+    }
+    if(price.length){
+      if(!parseFloat(price)){
+        toast.error("Please enter a valid number of Price");
+        return false;
+      }
+    }
+    return true;
+  }; 
+
   return (
     <div className="page">
       <div className="img-form">
@@ -11,27 +76,41 @@ export default function SquareBar() {
         </div>
         <div className="form">
           <div className="input-group">
-            <label htmlFor="side">Side (A)</label>
-            <input type="text" id="side" name="side" />
+            <label htmlFor="side">Side (A)<span>*</span></label>
+            <input type="text" id="side" name="side" onChange={(e) => {setSide(e.target.value)}}/>
           </div>
           <div className="input-group">
-            <label htmlFor="length">Length</label>
-            <input type="text" id="length" name="length" />
+            <label htmlFor="length">Length<span>*</span></label>
+            <input type="text" id="length" name="length" onChange={(e) => {setLength(e.target.value)}}/>
           </div>
           <div className="input-group">
             <label htmlFor="pieces">Pieces</label>
-            <input type="text" id="pieces" name="pieces" />
+            <input type="text" id="pieces" name="pieces" onChange={(e) => {setPieces(e.target.value)}}/>
           </div>
           <div className="input-group">
             <label htmlFor="price">Kg Price</label>
-            <input type="text" id="price" name="price" />
+            <input type="text" id="price" name="price" onChange={(e) => {setPrice(e.target.value)}}/>
           </div>
+          <div style={{fontSize:'0.6rem', textAlign:'center', color:'red'}}>All dimensions in mm</div>
           <div className="input-group">
-            <button class="btn">Calculate</button>
+            <button class="btn" onClick={handleClick}>Calculate</button>
           </div>
         </div>
       </div>
-      <div className="result">Result</div>      
+      <div className="result">
+          {weight ? 
+            <div>Weight: {weight.toLocaleString('en-IN', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Kg.</div>          : 
+          <></>
+          } 
+          {totalWeight ? 
+            <div>Total Weight: {totalWeight.toLocaleString('en-IN', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} Kg.</div>          : 
+          <></>
+          } 
+          {totalPrice ? 
+            <div>Total Price: {totalPrice.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>          : 
+          <></>
+          } 
+      </div>
     </div>
   );
 }

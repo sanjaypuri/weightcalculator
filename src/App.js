@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Header from './components/Header';
 import SettingBar from './components/SettingBar';
@@ -17,27 +19,30 @@ import Plate from './pages/plate';
 
 function App() {
   return (
-    <BrowserRouter>
-    <div className="main">
-      <Header/>
-      <SettingBar/>
-      {/* <Home/> */}
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/hexbar" element={<HexBar/>}/>
-        <Route path="/roundbar" element={<RoundBar/>}/>
-        <Route path="/roundtube" element={<RoundTube/>}/>
-        <Route path="/squarebar" element={<SquareBar/>}/>
-        <Route path="/rectangulartube" element={<RectangularTube/>}/>
-        <Route path="/tbar" element={<TBar/>}/>
-        <Route path="/angle" element={<Angle/>}/>
-        <Route path="/channel" element={<Channel/>}/>
-        <Route path="/beam" element={<Beam/>}/>
-        <Route path="/flat" element={<Flat/>}/>
-        <Route path="/plate" element={<Plate/>}/>
-      </Routes>
-    </div>
-    </BrowserRouter>
+    <>
+      <ToastContainer></ToastContainer>
+      <BrowserRouter>
+        <div className="main">
+          <Header />
+          <SettingBar />
+          {/* <Home/> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/hexbar" element={<HexBar />} />
+            <Route path="/roundbar" element={<RoundBar />} />
+            <Route path="/roundtube" element={<RoundTube />} />
+            <Route path="/squarebar" element={<SquareBar />} />
+            <Route path="/rectangulartube" element={<RectangularTube />} />
+            <Route path="/tbar" element={<TBar />} />
+            <Route path="/angle" element={<Angle />} />
+            <Route path="/channel" element={<Channel />} />
+            <Route path="/beam" element={<Beam />} />
+            <Route path="/flat" element={<Flat />} />
+            <Route path="/plate" element={<Plate />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
